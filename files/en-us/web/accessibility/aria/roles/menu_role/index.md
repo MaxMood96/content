@@ -7,6 +7,8 @@ spec-urls:
   - https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/
 ---
 
+{{AccessibilitySidebar}}
+
 The `menu` role is a type of composite widget that offers a list of choices to the user.
 
 ## Description
@@ -41,7 +43,7 @@ If the menu is visually persistent, consider the [`menubar`](/en-US/docs/Web/Acc
 
   - : A divider that separates and distinguishes sections of content or groups of menu items within the menu
 
-- [`tabindex`](/en-US/docs/Web/HTML/Global_attributes#tabindex) attribute
+- [`tabindex`](/en-US/docs/Web/HTML/Global_attributes/tabindex) attribute
   - : The `menu` container has `tabindex` set to `-1` or `0` and each item in the menu has `tabindex` set to `-1`.
 - [`aria-activedescendant`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-activedescendant)
   - : Set to the ID of the focused item, if there is one.
@@ -185,18 +187,10 @@ The navigation example has a static button. The submenu example has a button tha
 
 {{Specifications}}
 
-## See Also
+## See also
 
 - [`menubar`](/en-US/docs/Web/Accessibility/ARIA/Roles/menubar_role)
 - [`menuitem`](/en-US/docs/Web/Accessibility/ARIA/Roles/menuitem_role)
 - [`menuitemcheckbox`](/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role)
 - [`menuitemradio`](/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role)
 - [`aria-haspopup`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup)
-
-<section id="Quick_links">
-
-1. [**WAI-ARIA roles**](/en-US/docs/Web/Accessibility/ARIA/Roles)
-
-   {{ListSubpagesForSidebar("/en-US/docs/Web/Accessibility/ARIA/Roles")}}
-
-</section>

@@ -4,6 +4,8 @@ slug: Learn/Server-side/Express_Nodejs/forms/Create_book_form
 page-type: learn-module-chapter
 ---
 
+{{LearnSidebar}}
+
 This subarticle shows how to define a page/form to create `Book` objects. This is a little more complicated than the equivalent `Author` or `Genre` pages because we need to get and display available `Author` and `Genre` records in our `Book` form.
 
 ## Import validation and sanitization methods
@@ -167,31 +169,38 @@ extends layout
 block content
   h1= title
 
-  form(method='POST' action='')
+  form(method='POST')
     div.form-group
       label(for='title') Title:
-      input#title.form-control(type='text', placeholder='Name of book' name='title' required='true' value=(undefined===book ? '' : book.title) )
+      input#title.form-control(type='text', placeholder='Name of book' name='title' required value=(undefined===book ? '' : book.title) )
     div.form-group
       label(for='author') Author:
-      select#author.form-control(type='select', placeholder='Select author' name='author' required='true' )
+      select#author.form-control(name='author' required)
+        option(value='') --Please select an author--
         for author in authors
           if book
-            option(value=author._id selected=(author._id.toString()===book.author._id.toString() ? 'selected' : false) ) #{author.name}
+            if author._id.toString()===book.author._id.toString()
+              option(value=author._id selected) #{author.name}
+            else
+              option(value=author._id) #{author.name}
           else
             option(value=author._id) #{author.name}
     div.form-group
       label(for='summary') Summary:
-      textarea#summary.form-control(type='textarea', placeholder='Summary' name='summary' required='true') #{undefined===book ? '' : book.summary}
+      textarea#summary.form-control(placeholder='Summary' name='summary' required)= undefined===book ? '' : book.summary
     div.form-group
       label(for='isbn') ISBN:
-      input#isbn.form-control(type='text', placeholder='ISBN13' name='isbn' value=(undefined===book ? '' : book.isbn) required='true')
+      input#isbn.form-control(type='text', placeholder='ISBN13' name='isbn' value=(undefined===book ? '' : book.isbn) required)
     div.form-group
       label Genre:
       div
         for genre in genres
           div(style='display: inline; padding-right:10px;')
-            input.checkbox-input(type='checkbox', name='genre', id=genre._id, value=genre._id, checked=genre.checked )
-            label(for=genre._id) #{genre.name}
+            if genre.checked
+              input.checkbox-input(type='checkbox', name='genre', id=genre._id, value=genre._id, checked)
+            else
+              input.checkbox-input(type='checkbox', name='genre', id=genre._id, value=genre._id)
+            label(for=genre._id) &nbsp;#{genre.name}
     button.btn.btn-primary(type='submit') Submit
 
   if errors
@@ -208,7 +217,8 @@ The main differences are in how we implement the selection-type fields: `Author`
 - The set of authors are displayed as a single-selection alphabetically ordered drop-down list (the list passed to the template is already sorted, so we don't need to do that in the template).
   If the user has previously selected a book author (i.e. when fixing invalid field values after initial form submission, or when updating book details) the author will be re-selected when the form is displayed. Here we determine what author to select by comparing the id of the current author option with the value previously entered by the user (passed in via the `book` variable).
 
-> **Note:** If there is an error in the submitted form, then, when the form is to be re-rendered, the new book author's id and the existing books's authors ids are of type `Schema.Types.ObjectId`. So to compare them we must convert them to strings first.
+> [!NOTE]
+> If there is an error in the submitted form, then, when the form is to be re-rendered, the new book author's id and the existing books's authors ids are of type `Schema.Types.ObjectId`. So to compare them we must convert them to strings first.
 
 ## What does it look like?
 

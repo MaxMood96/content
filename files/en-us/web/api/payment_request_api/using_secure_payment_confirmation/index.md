@@ -18,7 +18,7 @@ To protect against online payment fraud, it is common to authenticate the accoun
 
 A number of mechanisms are used in combination for strong authentication, including passwords, one-time SMS codes, mobile applications, and Web Authentication. Each one has its advantages and disadvantages. For example, one-time SMS codes are now familiar to users but can involve usability issues (such as device unavailability) and security vulnerabilities. Web Authentication offers better security and is available in all major browsers and all modern mobile devices and computers. However, Web Authentication alone does not provide evidence of user consent to make a payment.
 
-SPC is designed to enable streamlined strong customer authentication (SCA) in a variety of payment systems, and to provide cryptographic evidence that the user has consented to the terms of a transaction. When the API is called, the browser displays elements of the transaction in a dialog box: the name of the merchant, payment instrument, and amount and currency of payment. For example, here is the Chrome browser (version M118) [transaction dialog](#transaction-dialog) for SPC:
+SPC is designed to enable streamlined strong customer authentication (SCA) in a variety of payment systems, and to provide cryptographic evidence that the user has consented to the terms of a transaction. When the API is called, the browser displays elements of the transaction in a dialog box: the name of the merchant, payment instrument, and amount and currency of payment. For example, here is the Chrome browser (version M118) transaction dialog for SPC:
 
 ![Chrome M118 transaction dialog for SPC](chrome-tx-dialog.png)
 
@@ -108,7 +108,8 @@ For example:
 
 An origin may invoke the Payment Request API with the `"secure-payment-confirmation"` payment method to prompt the user to verify a Secure Payment Confirmation credential created by any other origin. The browser will display a native user interface (the "transaction dialog") with transaction details (e.g., the payment currency and amount and the payee origin).
 
-> **Note:** Per the Payment Request API, if `PaymentRequest` is used within a cross-origin iframe (e.g., if `merchant.com` embeds an iframe from `psp.com`, and `psp.com` wishes to use `PaymentRequest`), that iframe must have the `payment` permission policy set.
+> [!NOTE]
+> Per the Payment Request API, if `PaymentRequest` is used within a cross-origin iframe (e.g., if `merchant.com` embeds an iframe from `psp.com`, and `psp.com` wishes to use `PaymentRequest`), that iframe must have the `payment` permission policy set.
 
 ```js
 const request = new PaymentRequest(
@@ -172,6 +173,6 @@ try {
 - [Secure Payment Confirmation Scope](https://github.com/w3c/secure-payment-confirmation/blob/main/scope.md)
 - General [flow diagram for SPC during a payment](https://github.com/w3c/wpsig/blob/gh-pages/spc-general.png)
 - [Secure Payment Confirmation Test Suite](https://wpt.fyi/results/secure-payment-confirmation?label=master&label=experimental&aligned)
-- [Chrome developer documentation for SPC](https://developer.chrome.com/articles/secure-payment-confirmation/)
+- [Chrome developer documentation for SPC](https://developer.chrome.com/docs/payments/secure-payment-confirmation)
 - [EMV® 3-D Secure (version 2.3)](https://www.emvco.com/emv-technologies/3-d-secure/)
 - [EMV® Secure Remote Commerce (version 1.3)](https://www.emvco.com/emv-technologies/secure-remote-commerce/)

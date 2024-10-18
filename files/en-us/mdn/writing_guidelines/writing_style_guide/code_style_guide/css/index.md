@@ -28,11 +28,11 @@ For maximum flexibility over the widest possible range of devices, it is a good 
 
 ### Don't use preprocessors
 
-Don't use preprocessor syntax, such as [Sass](https://sass-lang.com/), [Less](https://lesscss.org/), or [Stylus,](https://stylus-lang.com/), in the example code. On MDN Web Docs, we document the vanilla CSS language. Using preprocessors will only raise the bar to understanding the examples, potentially confusing readers.
+Don't use preprocessor syntax, such as [Sass](https://sass-lang.com/), [Less](https://lesscss.org/), or [Stylus](https://stylus-lang.com/), in the example code. On MDN Web Docs, we document the vanilla CSS language. Using preprocessors will only raise the bar to understanding the examples, potentially confusing readers.
 
 ### Don't use specific CSS methodologies
 
-In the same spirit as the previous guideline, don't write example codes on MDN Web Docs using a specific CSS methodology such as [BEM](http://getbem.com/naming/) or [SMACSS](http://smacss.com/). Even though they are valid CSS syntax, the naming conventions can be confusing to people not familiar with those methodologies.
+In the same spirit as the previous guideline, don't write example codes on MDN Web Docs using a specific CSS methodology such as [BEM](https://getbem.com/naming/) or [SMACSS](https://smacss.com/). Even though they are valid CSS syntax, the naming conventions can be confusing to people not familiar with those methodologies.
 
 ### Don't use resets
 
@@ -118,7 +118,7 @@ Usually, when teaching the specifics of CSS syntax, it is clearer and more obvio
   ```css
   /* duration | timing-function | delay | iteration-count
     direction | fill-mode | play-state | name */
-  animation: 3s ease-in 1s 2 reverse both paused slidein;
+  animation: 3s ease-in 1s 2 reverse both paused slide-in;
   ```
 
   In this example, the first value that can be parsed as a [`<time>`](/en-US/docs/Web/CSS/time) is assigned to the [`animation-duration`](/en-US/docs/Web/CSS/animation-duration) property, and the second value that can be parsed as time is assigned to [`animation-delay`](/en-US/docs/Web/CSS/animation-delay). (For more information, see [animation syntax](/en-US/docs/Web/CSS/animation#syntax) details.)

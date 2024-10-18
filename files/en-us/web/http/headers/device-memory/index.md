@@ -25,7 +25,7 @@ The **`Device-Memory`** [device client hint](/en-US/docs/Web/HTTP/Client_hints#d
   </tbody>
 </table>
 
-> **Note:**
+> [!NOTE]
 >
 > - Client Hints are accessible only on secure origins (via TLS).
 > - A server has to opt in to receive the `Device-Memory` header from the client, by sending the {{HTTPHeader("Accept-CH")}} response header.
@@ -68,7 +68,7 @@ Device-Memory: 1
 
 ## See also
 
-- [Improving user privacy and developer experience with User-Agent Client Hints](https://developer.chrome.com/articles/user-agent-client-hints/) (web.dev)
+- [Improving user privacy and developer experience with User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{DOMxRef("Device Memory API", "Device Memory API", "", "nocode")}}
 - {{DOMxRef("Navigator.deviceMemory")}}
 - {{DOMxRef("WorkerNavigator.deviceMemory")}}
