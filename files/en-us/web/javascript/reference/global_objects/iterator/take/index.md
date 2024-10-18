@@ -2,12 +2,10 @@
 title: Iterator.prototype.take()
 slug: Web/JavaScript/Reference/Global_Objects/Iterator/take
 page-type: javascript-instance-method
-status:
-  - experimental
 browser-compat: javascript.builtins.Iterator.take
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{JSRef}}
 
 The **`take()`** method of {{jsxref("Iterator")}} instances returns a new [iterator helper](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helpers) that yields the given number of elements in this iterator and then terminates.
 
@@ -75,7 +73,7 @@ Because `fibonacci()` is an infinite iterator, you can't use a `for` loop to ite
 
 ### Combining drop() with take()
 
-You can combine `drop()` with {{jsxref("Iterator.prototype.take()")}} to get a slice of an iterator:
+You can combine `take()` with {{jsxref("Iterator.prototype.drop()")}} to get a slice of an iterator:
 
 ```js
 for (const n of fibonacci().drop(2).take(5)) {

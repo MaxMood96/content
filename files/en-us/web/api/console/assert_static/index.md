@@ -6,18 +6,18 @@ page-type: web-api-instance-method
 browser-compat: api.console.assert_static
 ---
 
-{{APIRef("Console API")}}
+{{APIRef("Console API")}} {{AvailableInWorkers}}
 
 The **`console.assert()`** static method writes an error message to the console if the assertion is false. If the assertion is true, nothing happens.
-
-{{AvailableInWorkers}}
 
 ## Syntax
 
 ```js-nolint
-assert(assertion, obj1)
-assert(assertion, obj1, obj2)
-assert(assertion, obj1, obj2, /* …, */ objN)
+assert(assertion)
+
+assert(assertion, val1)
+assert(assertion, val1, val2)
+assert(assertion, val1, val2, /* …, */ valN)
 
 assert(assertion, msg)
 assert(assertion, msg, subst1)
@@ -27,13 +27,15 @@ assert(assertion, msg, subst1, /* …, */ substN)
 ### Parameters
 
 - `assertion`
-  - : Any boolean expression. If the assertion is false, the message is written to the console.
-- `obj1` … `objN`
-  - : A list of JavaScript objects to output. The string representations of each of these objects are appended together in the order listed and output to the console.
+  - : Any boolean expression. If the assertion is false, a generic message indicating assertion failure is written to the console.
+- `val1` … `valN`
+  - : A list of JavaScript values to output. A representation of each of these values is output to the console after a generic assertion failure message (which may be different from the message output when these values are not present) in the order given with some type of separation between the message and between each of them. There is a special case if `obj1` is a string, which is described subsequently.
 - `msg`
-  - : A JavaScript string containing zero or more substitution strings, which are replaced with `subst1` through `substN` in consecutive order.
+  - : A JavaScript string containing zero or more substitution strings, which are replaced with `subst1` through `substN` in consecutive order up to the number of substitution strings. A colon, a space, and then the substituted string are appended to the generic assertion message to form a detailed assertion message, and the result is output to the console. See [Using string substitutions](/en-US/docs/Web/API/console#using_string_substitutions) for a description of how substitutions work.
 - `subst1` … `substN`
-  - : JavaScript objects with which to replace substitution strings within `msg`. This gives you additional control over the format of the output. See [Using string substitutions](/en-US/docs/Web/API/console#using_string_substitutions) for a description of how substitutions work.
+  - : JavaScript values with which to replace substitution strings within `msg`. If there are more substitution values than there are substitution strings, the extra values are themselves written to the console after the detailed assertion message in the same manner as when there's no format string.
+
+See [Outputting text to the console](/en-US/docs/Web/API/console#outputting_text_to_the_console) in the documentation of {{domxref("console")}} for further details.
 
 ### Return value
 
@@ -57,8 +59,6 @@ for (let number = 2; number <= 5; number++) {
 // the # is 5
 // Assertion failed: {number: 5, errorMsg: "the # is not even"}
 ```
-
-See [Using string substitutions](/en-US/docs/Web/API/console#using_string_substitutions) in the documentation of {{domxref("console")}} for further details.
 
 ## Specifications
 
