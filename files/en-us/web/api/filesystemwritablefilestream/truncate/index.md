@@ -6,7 +6,7 @@ page-type: web-api-instance-method
 browser-compat: api.FileSystemWritableFileStream.truncate
 ---
 
-{{securecontext_header}}{{APIRef("File System API")}}
+{{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
 The **`truncate()`** method of the {{domxref("FileSystemWritableFileStream")}} interface resizes the file associated with the stream to the specified size in bytes.
 
@@ -91,4 +91,4 @@ If you run the above function and then open the resulting file created on disk, 
 ## See also
 
 - [File System API](/en-US/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/articles/file-system-access/)
+- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

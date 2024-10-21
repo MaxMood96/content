@@ -42,7 +42,8 @@ mode on the client, and when communicated to origins allows them to deliver alte
 content to reduce the data downloaded such as smaller image and video resources,
 different markup and styling, disabled polling and automatic updates, and so on.
 
-> **Note:** Disabling HTTP/2 Server Push ({{RFC("7540", "Server Push", "8.2")}}) might be desirable too for reducing data downloads.
+> [!NOTE]
+> Disabling HTTP/2 Server Push ({{RFC("7540", "Server Push", "8.2")}}) might be desirable too for reducing data downloads.
 
 ## Syntax
 
@@ -119,5 +120,5 @@ Content-Type: image/jpeg
 - [Delivering Fast and Light Applications with Save-Data - web.dev](https://web.dev/articles/optimizing-content-efficiency-save-data)
 - {{HTTPHeader("Vary")}} header which indicates that the content served varies depending on the value of `Save-Data` (see [HTTP Caching > Vary](/en-US/docs/Web/HTTP/Caching#vary))
 - CSS @media feature [`prefers-reduced-data`](/en-US/docs/Web/CSS/@media/prefers-reduced-data) {{experimental_inline}}
-- [Improving user privacy and developer experience with User-Agent Client Hints](https://developer.chrome.com/articles/user-agent-client-hints/) (web.dev)
+- [Improving user privacy and developer experience with User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{domxref("NetworkInformation.saveData")}}

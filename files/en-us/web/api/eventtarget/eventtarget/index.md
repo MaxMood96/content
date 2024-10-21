@@ -6,11 +6,12 @@ page-type: web-api-constructor
 browser-compat: api.EventTarget.EventTarget
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{AvailableInWorkers}}
 
 The **`EventTarget()`** constructor creates a new {{domxref("EventTarget")}} object instance.
 
-> **Note:** It is fairly rare to explicitly call this constructor. Most of the time, this constructor is used inside the constructor of an object extending the {{domxref("EventTarget")}} interface, using the [`super`](/en-US/docs/Web/JavaScript/Reference/Operators/super) keyword.
+> [!NOTE]
+> It is fairly rare to explicitly call this constructor. Most of the time, this constructor is used inside the constructor of an object extending the {{domxref("EventTarget")}} interface, using the [`super`](/en-US/docs/Web/JavaScript/Reference/Operators/super) keyword.
 
 ## Syntax
 
@@ -30,7 +31,7 @@ A new instance of the {{domxref("EventTarget")}} object.
 
 ### Implementing a counter
 
-This example implements a `Counter` class, with `increment()` and `decrement()` methods. If fires a custom `"valuechange"` event when either of these methods is called.
+This example implements a `Counter` class, with `increment()` and `decrement()` methods. It fires a custom `"valuechange"` event when either of these methods is called.
 
 #### HTML
 
