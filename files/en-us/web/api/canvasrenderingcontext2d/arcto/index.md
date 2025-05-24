@@ -349,7 +349,7 @@ can be used to change an underlined element that is in focus.
             return;
           }
           /* Handle non-digits entered by parsing */
-          let value = parseInt(target.textContent);
+          let value = parseInt(target.textContent, 10);
           value = isNaN(value) ? 0 : value;
           textInput.updateFull(value);
           break;
@@ -489,11 +489,12 @@ can be used to change an underlined element that is in focus.
       s.canvasSize,
       s.errorTolCenter,
     );
-    s.pointActiveIndex = -1; // no point currently active
+    s.pointActiveIndex = -1; // No point currently active
     s.pointActiveMoving = false; // Active point hovering (false) or
     // moving (true)
-    s.mouseDelta = Math2D.point(); // offset of mouse pointer
-    //from point center
+    // offset of mouse pointer
+    // from point center
+    s.mouseDelta = Math2D.point();
     return s;
   }
 

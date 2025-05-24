@@ -68,6 +68,7 @@ First we create routes for a wiki in a module named **wiki.js**. The code first 
 // wiki.js - Wiki route module.
 
 const express = require("express");
+
 const router = express.Router();
 
 // Home page route.
@@ -90,6 +91,7 @@ To use the router module in our main app file we first `require()` the route mod
 
 ```js
 const wiki = require("./wiki.js");
+
 // …
 app.use("/wiki", wiki);
 ```
@@ -187,7 +189,7 @@ router.get("/about", (req, res, next) => {
     if (err) {
       return next(err);
     }
-    //Successful, so render
+    // Successful, so render
     res.render("about_view", { title: "About", list: queryResults });
   });
 });
@@ -262,7 +264,7 @@ Before we define our routes, we'll first create all the dummy/skeleton callback 
 Start by creating a folder for our controllers in the project root (**/controllers**) and then create separate controller files/modules for handling each of the models:
 
 ```plain
-/express-locallibrary-tutorial  //the project root
+/express-locallibrary-tutorial  # the project root
   /controllers
     authorController.js
     bookController.js
@@ -496,7 +498,7 @@ The skeleton already has a **./routes** folder containing routes for the _index_
 Create another route file — **catalog.js** — inside this folder, as shown.
 
 ```plain
-/express-locallibrary-tutorial //the project root
+/express-locallibrary-tutorial # the project root
   /routes
     index.js
     users.js
@@ -507,13 +509,14 @@ Open **/routes/catalog.js** and copy in the code below:
 
 ```js
 const express = require("express");
-const router = express.Router();
 
 // Require controller modules.
 const book_controller = require("../controllers/bookController");
 const author_controller = require("../controllers/authorController");
 const genre_controller = require("../controllers/genreController");
 const book_instance_controller = require("../controllers/bookinstanceController");
+
+const router = express.Router();
 
 /// BOOK ROUTES ///
 
@@ -575,7 +578,7 @@ router.get("/authors", author_controller.author_list);
 // GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id).
 router.get("/genre/create", genre_controller.genre_create_get);
 
-//POST request for creating Genre.
+// POST request for creating Genre.
 router.post("/genre/create", genre_controller.genre_create_post);
 
 // GET request to delete Genre.
@@ -674,9 +677,9 @@ We do this in `app.js`.
 Open **app.js** and require the catalog route below the other routes (add the third line shown below, underneath the other two that should be already present in the file):
 
 ```js
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-const catalogRouter = require("./routes/catalog"); //Import routes for "catalog" area of site
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const catalogRouter = require("./routes/catalog"); // Import routes for "catalog" area of site
 ```
 
 Next, add the catalog route to the middleware stack below the other routes (add the third line shown below, underneath the other two that should be already present in the file):
