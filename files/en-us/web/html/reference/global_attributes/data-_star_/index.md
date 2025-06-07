@@ -1,5 +1,6 @@
 ---
-title: data-*
+title: HTML data-* global attribute
+short-title: data-*
 slug: Web/HTML/Reference/Global_attributes/data-*
 page-type: html-attribute
 browser-compat: html.global_attributes.data_attributes
@@ -60,7 +61,7 @@ li:hover:after {
 ```
 
 All such custom data are available via the {{domxref("HTMLElement")}} interface of the element the attribute is set on. The {{domxref("HTMLElement.dataset")}} property gives access to them.
-The `*` may be replaced by any name following [the production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) which includes the following recommendations:
+The `*` may be replaced by any name following [the production rule of XML names](https://www.w3.org/TR/xml/#NT-Name) which includes the following recommendations:
 
 - The name should not start with `xml` (case-insensitive), as it's reserved for future XML specifications.
 - The name should not contain any colon characters (`:`), as XML assigns meaning to such names.
@@ -83,11 +84,20 @@ By adding `data-*` attributes, even ordinary HTML elements can become rather com
   data-shields="72%"
   data-x="414354"
   data-y="85160"
-  data-z="31940"
-  onclick="spaceships[this.dataset.shipId].blasted()" />
+  data-z="31940" />
 ```
 
-For a more in-depth tutorial about using HTML data attributes, see [Using data attributes](/en-US/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes).
+```js
+function clickSpaceship() {
+  spaceships[this.dataset.shipId].blasted();
+}
+
+document.querySelectorAll("img.spaceship").forEach((ship) => {
+  ship.addEventListener("click", clickSpaceship);
+});
+```
+
+For a more in-depth tutorial about using HTML data attributes, see [Using data attributes](/en-US/docs/Web/HTML/How_to/Use_data_attributes).
 
 ## Specifications
 
@@ -101,4 +111,4 @@ For a more in-depth tutorial about using HTML data attributes, see [Using data a
 
 - All [global attributes](/en-US/docs/Web/HTML/Reference/Global_attributes).
 - The {{domxref("HTMLElement.dataset")}} property that allows to access and modify these values.
-- [Using data attributes](/en-US/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes)
+- [Using data attributes](/en-US/docs/Web/HTML/How_to/Use_data_attributes)
