@@ -89,7 +89,7 @@ decodingInfo(configuration)
         - `initDataType` {{optional_inline}}
 
           - : A string indicating the data type name the initialization data format, such as `"cenc"`, `"keyids"` and `"webm"`.
-            Allowed names are defined in the [Encrypted Media Extensions Initialization Data Format Registry](https://www.w3.org/TR/eme-initdata-registry/).
+            Allowed names are defined in the [Encrypted Media Extensions Initialization Data Format Registry](https://w3c.github.io/encrypted-media/format-registry/initdata/).
 
         - `distinctiveIdentifier` {{optional_inline}}
 
@@ -224,7 +224,7 @@ function log(text) {
 ```
 
 ```js
-//Create media configuration to be tested
+// Create media configuration to be tested
 const audioConfig = {
   type: "file", // or 'media-source' or 'webrtc'
   audio: {
@@ -400,13 +400,13 @@ This will be the supported configuration that was found last, which because of t
 let keys = null;
 if (bestConfig) {
   keys = await bestConfig.keySystemAccess.createMediaKeys();
-  // ... use keys to decode media using best config
+  // … use keys to decode media using best config
 } else if (nonSmoothConfig) {
   console.log(
     "No smooth configs found. Using lowest resolution configuration!",
   );
   keys = await nonSmoothConfig.keySystemAccess.createMediaKeys();
-  // ... use keys to decode media using lowest framerate config
+  // … use keys to decode media using lowest framerate config
 } else {
   console.log("No supported configs!");
   // Fail!

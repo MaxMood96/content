@@ -18,29 +18,27 @@ This example demonstrates using the {{domxref("Element/touchstart_event", "touch
 
 The application uses {{HTMLElement("div")}} elements to represent four touch areas.
 
-```html
-<style>
-  div {
-    margin: 0em;
-    padding: 2em;
-  }
-  #target1 {
-    background: white;
-    border: 1px solid black;
-  }
-  #target2 {
-    background: white;
-    border: 1px solid black;
-  }
-  #target3 {
-    background: white;
-    border: 1px solid black;
-  }
-  #target4 {
-    background: white;
-    border: 1px solid black;
-  }
-</style>
+```css
+div {
+  margin: 0em;
+  padding: 2em;
+}
+#target1 {
+  background: white;
+  border: 1px solid black;
+}
+#target2 {
+  background: white;
+  border: 1px solid black;
+}
+#target3 {
+  background: white;
+  border: 1px solid black;
+}
+#target4 {
+  background: white;
+  border: 1px solid black;
+}
 ```
 
 ### Global state
@@ -131,8 +129,8 @@ function start_handler(ev) {
   ev.preventDefault();
   // Cache the touch points for later processing of 2-touch pinch/zoom
   if (ev.targetTouches.length === 2) {
-    for (let i = 0; i < ev.targetTouches.length; i++) {
-      tpCache.push(ev.targetTouches[i]);
+    for (const touch of ev.targetTouches) {
+      tpCache.push(touch);
     }
   }
   if (logEvents) log("touchStart", ev, true);
@@ -252,8 +250,8 @@ function log(name, ev, printTargetIds) {
 
   if (printTargetIds) {
     s = "";
-    for (let i = 0; i < ev.targetTouches.length; i++) {
-      s += `... id = ${ev.targetTouches[i].identifier}\n`;
+    for (const touch of ev.targetTouches) {
+      s += `... id = ${touch.identifier}\n`;
     }
     o.innerText += s;
   }
