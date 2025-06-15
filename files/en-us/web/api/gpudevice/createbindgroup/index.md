@@ -32,7 +32,7 @@ createBindGroup(descriptor)
             - `GPUBufferBinding` (which wraps a {{domxref("GPUBuffer")}}; see [GPUBufferBinding objects](#gpubufferbinding_objects) for a definition)
             - {{domxref("GPUExternalTexture")}}
             - {{domxref("GPUSampler")}}
-            - {{domxref("GPUTextureView")}}
+            - {{domxref("GPUTextureView")}}; can be used in place of a `GPUExternalTexture` provided it is compatible (a 2D format with a single subresource, that is, [`dimension: "2d"`](/en-US/docs/Web/API/GPUTexture/createView#dimension)).
     - `label` {{optional_inline}}
       - : A string providing a label that can be used to identify the object, for example in {{domxref("GPUError")}} messages or console warnings.
     - `layout`
@@ -93,7 +93,7 @@ The following criteria must be met when calling **`createBindGroup()`**, otherwi
 Our [basic compute demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) shows an example of creating a bind group layout and then using that as a template when creating a bind group.
 
 ```js
-// ...
+// …
 
 const bindGroupLayout = device.createBindGroupLayout({
   entries: [
@@ -119,7 +119,7 @@ const bindGroup = device.createBindGroup({
   ],
 });
 
-// ...
+// …
 ```
 
 ## Specifications
