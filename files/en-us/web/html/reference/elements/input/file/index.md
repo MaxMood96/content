@@ -204,7 +204,7 @@ elem.addEventListener("cancel", () => {
   console.log("Cancelled.");
 });
 elem.addEventListener("change", () => {
-  if (elem.files.length == 1) {
+  if (elem.files.length === 1) {
     console.log("File selected: ", elem.files[0]);
   }
 });
@@ -414,9 +414,8 @@ function returnFileSize(number) {
     return `${number} bytes`;
   } else if (number >= 1e3 && number < 1e6) {
     return `${(number / 1e3).toFixed(1)} KB`;
-  } else {
-    return `${(number / 1e6).toFixed(1)} MB`;
   }
+  return `${(number / 1e6).toFixed(1)} MB`;
 }
 ```
 
@@ -484,7 +483,7 @@ The example looks like this; have a play:
     </tr>
     <tr>
       <td><strong>Implicit ARIA Role</strong></td>
-      <td><a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">no corresponding role</a></td>
+      <td><a href="https://w3c.github.io/html-aria/#dfn-no-corresponding-role">no corresponding role</a></td>
     </tr>
   </tbody>
 </table>

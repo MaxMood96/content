@@ -1,5 +1,6 @@
 ---
 title: Intl.supportedValuesOf()
+short-title: supportedValuesOf()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf
 page-type: javascript-static-method
 browser-compat: javascript.builtins.Intl.supportedValuesOf
@@ -377,7 +378,7 @@ Intl.supportedValuesOf("unit").forEach((unit) => {
 try {
   Intl.supportedValuesOf("someInvalidKey");
 } catch (err) {
-  //Error: RangeError: invalid key: "someInvalidKey"
+  // RangeError: invalid key: "someInvalidKey"
 }
 ```
 

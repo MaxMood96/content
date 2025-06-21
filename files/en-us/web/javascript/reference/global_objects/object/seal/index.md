@@ -1,5 +1,6 @@
 ---
 title: Object.seal()
+short-title: seal()
 slug: Web/JavaScript/Reference/Global_Objects/Object/seal
 page-type: javascript-static-method
 browser-compat: javascript.builtins.Object.seal
@@ -98,7 +99,7 @@ obj.quaxxor = "the friendly duck";
 delete obj.foo;
 // silently doesn't delete the property
 
-// ...and in strict mode such attempts
+// … and in strict mode such attempts
 // will throw TypeErrors.
 function fail() {
   "use strict";

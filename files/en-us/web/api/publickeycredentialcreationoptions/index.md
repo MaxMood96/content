@@ -125,7 +125,7 @@ The **`PublicKeyCredentialCreationOptions`** dictionary represents the object pa
 
       - : A number that is equal to a [COSE Algorithm Identifier](https://www.iana.org/assignments/cose/cose.xhtml#algorithms), representing the cryptographic algorithm to use for this credential type. It is recommended that relying parties that wish to support a wide range of authenticators should include at least the following values in the provided choices:
 
-        - `-8`: Ed25519
+        - `-8`: EdDSA
         - `-7`: ES256
         - `-257`: RS256
 
@@ -174,7 +174,7 @@ The **`PublicKeyCredentialCreationOptions`** dictionary represents the object pa
       - : An {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}}, or {{jsxref("DataView")}} representing a unique ID for the user account. This value has a maximum length of 64 bytes, and is not intended to be displayed to the user.
 
     - `name`
-      - : A string providing a human-friendly identifier for the user's account, to help distinguish between different accounts with similar `displayName`s. This could be an email address (such as `"john.doe@example.com"`), phone number (for example `"+12345678901"`), or some other kind of user account identifier (for example `"johndoe667"`).
+      - : A string providing a human-friendly identifier for the user's account, to help distinguish between different accounts with similar `displayName`s. This could be an email address (such as `"john.doe@example.com"`), phone number (for example `"+12345678901"`), or some other kind of user account identifier (for example `"JohnDoe667"`).
 
 - `hints` {{optional_inline}}
 

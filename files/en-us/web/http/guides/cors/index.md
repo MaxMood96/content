@@ -22,7 +22,7 @@ The CORS mechanism supports secure cross-origin requests and data transfers betw
 This [cross-origin sharing standard](https://fetch.spec.whatwg.org/#http-cors-protocol) can enable cross-origin HTTP requests for:
 
 - Invocations of `fetch()` or `XMLHttpRequest`, as discussed above.
-- Web Fonts (for cross-domain font usage in `@font-face` within CSS), [so that servers can deploy TrueType fonts that can only be loaded cross-origin and used by websites that are permitted to do so.](https://www.w3.org/TR/css-fonts-3/#font-fetching-requirements)
+- Web Fonts (for cross-domain font usage in `@font-face` within CSS), as described in the [font fetching requirements](https://drafts.csswg.org/css-fonts/#font-fetching-requirements), so that servers can deploy TrueType fonts that can only be loaded cross-origin and used by websites that are permitted to do so.
 - [WebGL textures](/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL).
 - Images/video frames drawn to a canvas using {{domxref("CanvasRenderingContext2D.drawImage()", "drawImage()")}}.
 - [CSS Shapes from images.](/en-US/docs/Web/CSS/CSS_shapes/Shapes_from_images)
@@ -298,7 +298,7 @@ const fetchPromise = fetch(request);
 fetchPromise.then((response) => console.log(response));
 ```
 
-This code creates a {{domxref("Request")}} object, setting the `credentials` option to `"include"` in the constructor, then passes this request into `fetch()`. Since this is a simple `GET` request, it is not preflighted but the browser will **reject** any response that does not have the {{HTTPHeader("Access-Control-Allow-Credentials")}}`: true` header, and **not** make the response available to the invoking web content.
+This code creates a {{domxref("Request")}} object, setting the `credentials` option to `"include"` in the constructor, then passes this request into `fetch()`. Since this is a simple `GET` request, it is not preflighted but the browser will **reject** any response that does not have the {{HTTPHeader("Access-Control-Allow-Credentials")}} header set to `true`, and **not** make the response available to the invoking web content.
 
 ![Diagram of a GET request with Access-Control-Allow-Credentials](https://mdn.github.io/shared-assets/images/diagrams/http/cors/include-credentials.svg)
 
@@ -399,13 +399,11 @@ The {{HTTPHeader("Access-Control-Expose-Headers")}} header adds the specified he
 Access-Control-Expose-Headers: <header-name>[, <header-name>]*
 ```
 
-For example, the following:
+For example, the following would allow the `X-My-Custom-Header` and `X-Another-Custom-Header` headers to be exposed to the browser:
 
 ```http
 Access-Control-Expose-Headers: X-My-Custom-Header, X-Another-Custom-Header
 ```
-
-…would allow the `X-My-Custom-Header` and `X-Another-Custom-Header` headers to be exposed to the browser.
 
 ### Access-Control-Max-Age
 
